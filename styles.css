@@ -1,0 +1,579 @@
+/* General Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Black */
+    color: #FFFFFF;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+  
+  body.light-mode {
+    background-color: #FFFFFF; /* White */
+    color: #000000;
+  }
+  
+  /* Navigation Bar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.5s ease;
+  }
+  
+  .light-mode .navbar {
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .nav-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .light-mode .nav-links a {
+    color: #000000;
+  }
+  
+  .nav-links a:hover {
+    color: #00C9FF; /* Neon blue */
+  }
+  
+  .auth-buttons .btn-login,
+  .auth-buttons .btn-signup {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+  
+  .auth-buttons .btn-login {
+    background: transparent;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+  }
+  
+  .light-mode .auth-buttons .btn-login {
+    color: #000000;
+    border: 2px solid #000000;
+  }
+  
+  .auth-buttons .btn-signup {
+    background: linear-gradient(90deg, #ffffff, #f8f8f8);
+    color: #000000;
+  }
+  
+  /* Theme Toggle */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #555555;
+    transition: 0.4s;
+    border-radius: 24px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background: #FFFFFF;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background: #00C9FF;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  /* Hero Section */
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 150px 50px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('assets/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .light-mode .hero {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6)), url('assets/hero-bg-light.jpg');
+  }
+  
+  .hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  /* CTA Buttons */
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-secondary {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+  }
+  
+  .cta-buttons .btn-primary {
+    background: #000000; /* Black */
+    color: #FFFFFF; /* White */
+    border: 2px solid #000000;
+  }
+  
+  .cta-buttons .btn-primary:hover {
+    background: #FFFFFF; /* White */
+    color: #000000; /* Black */
+    border: 2px solid #000000;
+  }
+  
+  .cta-buttons .btn-secondary {
+    background: #FFFFFF; /* White */
+    color: #000000; /* Black */
+    border: 2px solid #000000;
+  }
+  
+  .cta-buttons .btn-secondary:hover {
+    background: #000000; /* Black */
+    color: #FFFFFF; /* White */
+    border: 2px solid #FFFFFF;
+  }
+  
+  /* Light Mode Adjustments for Buttons */
+  .light-mode .cta-buttons .btn-primary {
+    background: #FFFFFF; /* White */
+    color: #000000; /* Black */
+    border: 2px solid #FFFFFF;
+  }
+  
+  .light-mode .cta-buttons .btn-primary:hover {
+    background: #000000; /* Black */
+    color: #FFFFFF; /* White */
+    border: 2px solid #000000;
+  }
+  
+  .light-mode .cta-buttons .btn-secondary {
+    background: #000000; /* Black */
+    color: #FFFFFF; /* White */
+    border: 2px solid #000000;
+  }
+  
+  .light-mode .cta-buttons .btn-secondary:hover {
+    background: #FFFFFF; /* White */
+    color: #000000; /* Black */
+    border: 2px solid #FFFFFF;
+  }
+  
+  /* Features Section */
+  .features {
+    padding: 100px 50px;
+    text-align: center;
+  }
+  
+  .feature-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+  
+  .card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    width: 30%;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .light-mode .card {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .light-mode .card:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Pricing Section */
+  .pricing {
+    padding: 100px 50px;
+    text-align: center;
+  }
+  
+  .pricing-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+  }
+  
+  .pricing .card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    width: 30%;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .light-mode .pricing .card {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .pricing .card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .light-mode .pricing .card:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  .pricing .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .pricing .card .price {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .pricing .card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .pricing .card ul li {
+    margin-bottom: 10px;
+  }
+  
+  .pricing .card .btn-primary {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    margin-top: 50px;
+  }
+  
+  .light-mode footer {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Add these styles to your CSS */
+
+/* Background Pattern */
+.background-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.02) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.02) 75%);
+  background-size: 4px 4px;
+  z-index: -1;
+}
+
+.light-mode .background-pattern {
+  background: 
+    linear-gradient(45deg, rgba(0,0,0,0.02) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0,0,0,0.02) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.02) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.02) 75%);
+}
+
+/* Floating Circles Animation */
+.floating-circles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  mix-blend-mode: soft-light;
+  animation: float 20s infinite linear;
+}
+
+.circle-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(0, 201, 255, 0.2);
+  top: 20%;
+  left: 10%;
+}
+
+.circle-2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(146, 254, 157, 0.2);
+  top: 50%;
+  right: 15%;
+  animation-delay: -5s;
+}
+
+.circle-3 {
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.1);
+  bottom: 10%;
+  left: 40%;
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(10vw, 10vh) rotate(90deg);
+  }
+  50% {
+    transform: translate(-5vw, 15vh) rotate(180deg);
+  }
+  75% {
+    transform: translate(-10vw, -5vh) rotate(270deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+/* Enhanced Hero Section Background */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, 
+    rgba(0, 201, 255, 0.1) 0%, 
+    rgba(0, 0, 0, 0) 70%);
+  z-index: -1;
+}
+
+.light-mode .hero::before {
+  background: radial-gradient(circle at 50% 50%, 
+    rgba(0, 201, 255, 0.05) 0%, 
+    rgba(255, 255, 255, 0) 70%);
+}
+
+/* Add this to existing .hero styles */
+.hero {
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.9) 0%, 
+    rgba(10, 15, 31, 0.8) 100%);
+}
+
+.light-mode .hero {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.9) 0%, 
+    rgba(245, 245, 245, 0.8) 100%);
+}
+
+/* styles.css */
+/* Global Background */
+.global-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  /* Floating Grid Pattern */
+  .floating-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: gridScroll 100s linear infinite;
+  }
+  
+  @keyframes gridScroll {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 1000px; }
+  }
+  
+  /* Animated Particles */
+  .animated-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(0,201,255,0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: particleMove 200s linear infinite;
+  }
+  
+  @keyframes particleMove {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 1000px; }
+  }
+  
+  /* Base Styling */
+  body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: 
+      linear-gradient(45deg, #0A0F1F 0%, #000000 100%);
+    color: #FFFFFF;
+    transition: all 0.5s ease;
+  }
+  
+  body.light-mode {
+    background: 
+      linear-gradient(45deg, #FFFFFF 0%, #F5F5F5 100%);
+    color: #000000;
+  }
+  
+  /* Content Sections */
+  .hero, .features, .pricing {
+    position: relative;
+    background: rgba(0, 0, 0, 0.4); /* Subtle overlay */
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 20px;
+    padding: 40px;
+  }
+  
+  .light-mode .hero, 
+  .light-mode .features, 
+  .light-mode .pricing {
+    background: rgba(255, 255, 255, 0.4);
+  }
+  
+  /* Keep all your existing card, button, and other styles */
+
+  /* Theme Toggle with Sun/Moon Icons */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+  }
+  
+  .theme-toggle input {
+    display: none; /* Hide the default checkbox */
+  }
+  
+  .theme-label {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    background: #333;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .theme-label .sun,
+  .theme-label .moon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .theme-label .sun {
+    left: 8px;
+    opacity: 1;
+  }
+  
+  .theme-label .moon {
+    right: 8px;
+    opacity: 0;
+  }
+  
+  /* Light Mode Styles */
+  body.light-mode .theme-label {
+    background: #ddd;
+  }
+  
+  body.light-mode .theme-label .sun {
+    opacity: 0;
+  }
+  
+  body.light-mode .theme-label .moon {
+    opacity: 1;
+  }
